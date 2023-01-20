@@ -21,7 +21,7 @@ services:
       - ./app:/app
     ports:
       - "5000:5000"
-    command: python app.py
+    command: sh -c "pip install -r requirements.txt && python app.py"
     depends_on:
       - postgres
 
@@ -34,4 +34,5 @@ services:
       - "5432:5432"
     volumes:
       - ./data:/var/lib/postgresql/data
+      
 
